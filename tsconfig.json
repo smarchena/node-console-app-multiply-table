@@ -1,7 +1,7 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "exclude": ["node_modules"],
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "config/pluggins"],
   "compilerOptions": {
     // File Layout
     "rootDir": "src",
