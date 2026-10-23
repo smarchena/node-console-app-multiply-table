@@ -17,12 +17,13 @@ export class CreateTable implements CreateTableUseCase {
 
     execute({ base, limit = 10 }: CreateTableOptions) {
 
+        const title: string = (`====================\n    Tabla del ${base}    \n====================\n\n`);
         let table = '';
 
         for (let i: number = 1; i <= limit; i++) {
             table += `${base} x ${i} = ${base * i}\n`;
         }
 
-        return table;
+        return title + table;
     }
 }

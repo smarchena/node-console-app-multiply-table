@@ -1,7 +1,5 @@
-import fs from 'fs'; 
+import fs from 'fs';
 import { yarg } from '../../config/plugins/yargs.plugin.js';
-
-const {b: base} = yarg;
 
 export interface SaveFileUseCase {
     execute: (options: Options) => boolean;
@@ -22,13 +20,13 @@ export class SaveFile implements SaveFileUseCase {
     execute({
         fileContent,
         fileDestination = 'outputs',
-        fileName = 'table'
+        fileName = `table-${yarg.base}`,
     }: Options): boolean {
 
         try {
             fs.mkdirSync(fileDestination, { recursive: true });
 
-            fs.writeFileSync(`${fileDestination}/${fileName}_${base}.txt`, fileContent);            
+            fs.writeFileSync(`${fileDestination}/${fileName}.txt`, fileContent);
             return true;
 
         } catch (error) {
